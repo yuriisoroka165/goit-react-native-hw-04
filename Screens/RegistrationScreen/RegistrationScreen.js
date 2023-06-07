@@ -42,10 +42,10 @@ const RegistrationScreen = () => {
             aspect: [4, 4],
             quality: 1,
         });
-        console.log(result.assets[0].uri);
 
         if (!result.canceled) setUserAavatar(result.assets[0].uri);
     };
+    
     return (
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
             <View style={styles.registrationContainer}>

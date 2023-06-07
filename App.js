@@ -4,6 +4,7 @@ import { useFonts } from "expo-font";
 import RegistrationScreen from "./Screens/RegistrationScreen";
 import LoginScreen from "./Screens/LoginScreen";
 import PostsScreen from "./Screens/PostsScreen/PostsScreen";
+import CreatePostsScreen from "./Screens/CreatePostsScreen";
 
 const App = () => {
     const [fontsLoaded] = useFonts({
@@ -25,8 +26,9 @@ const App = () => {
                 style={styles.image}
             />
             {/* <RegistrationScreen /> */}
-            <LoginScreen />
+            {/* <LoginScreen /> */}
             {/* <PostsScreen /> */}
+            <CreatePostsScreen />
         </View>
     );
 };
