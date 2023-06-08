@@ -1,4 +1,4 @@
-Створити екран CreatePostsScreen
+Створити екран CreatePostsScreen +
 
 Створити екран CommentsScreen
 

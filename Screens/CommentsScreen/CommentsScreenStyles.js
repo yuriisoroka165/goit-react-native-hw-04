@@ -1,12 +1,12 @@
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
-    createPostsScreenContainer: {
+    commentsScreenContainer: {
         width: "100%",
         height: "100%",
         backgroundColor: "#ffffff",
     },
-    createPostsHeaderContainer: {
+    commentsHeaderContainer: {
         position: "relative",
         display: "flex",
         flexDirection: "row",
@@ -23,7 +23,7 @@ export const styles = StyleSheet.create({
         borderBottomWidth: 1,
         // backgroundColor: "#000000"
     },
-    createPostsHeader: {
+    commentsHeader: {
         marginLeft: "auto",
         marginRight: "auto",
         fontWeight: 500,
