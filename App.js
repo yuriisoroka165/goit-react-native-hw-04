@@ -6,6 +6,8 @@ import LoginScreen from "./Screens/LoginScreen";
 import PostsScreen from "./Screens/PostsScreen/PostsScreen";
 import CreatePostsScreen from "./Screens/CreatePostsScreen";
 import CommentsScreen from "./Screens/CommentsScreen";
+import ProfileScreen from "./Screens/ProfileScreen";
+import MapScreen from "./Screens/MapScreen/MapScreen";
 
 const App = () => {
     const [fontsLoaded] = useFonts({
@@ -30,7 +32,9 @@ const App = () => {
             {/* <LoginScreen /> */}
             {/* <PostsScreen /> */}
             {/* <CreatePostsScreen /> */}
-            <CommentsScreen />
+            {/* <CommentsScreen /> */}
+            {/* <ProfileScreen /> */}
+            <MapScreen />
         </View>
     );
 };

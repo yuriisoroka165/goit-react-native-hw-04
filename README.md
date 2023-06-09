@@ -1,6 +1,6 @@
 Створити екран CreatePostsScreen +
 
-Створити екран CommentsScreen
+Створити екран CommentsScreen +
 
 Створити екран ProfileScreen
 
