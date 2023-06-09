@@ -1,3 +1,7 @@
+import "react-native-gesture-handler";
+import React from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createStackNavigator } from "@react-navigation/stack";
 import { Image, StyleSheet, View } from "react-native";
 import { useFonts } from "expo-font";
 
@@ -8,6 +12,8 @@ import CreatePostsScreen from "./Screens/CreatePostsScreen";
 import CommentsScreen from "./Screens/CommentsScreen";
 import ProfileScreen from "./Screens/ProfileScreen";
 import MapScreen from "./Screens/MapScreen/MapScreen";
+
+const MainStack = createStackNavigator();
 
 const App = () => {
     const [fontsLoaded] = useFonts({
@@ -28,13 +34,41 @@ const App = () => {
                 resizeMode="cover"
                 style={styles.image}
             />
-            {/* <RegistrationScreen /> */}
-            {/* <LoginScreen /> */}
-            {/* <PostsScreen /> */}
-            {/* <CreatePostsScreen /> */}
-            {/* <CommentsScreen /> */}
-            {/* <ProfileScreen /> */}
-            <MapScreen />
+            <NavigationContainer>
+                <MainStack.Navigator initialRouteName="Login">
+                    <MainStack.Screen
+                        options={{ headerShown: false }}
+                        name="Registration"
+                        component={RegistrationScreen}
+                    />
+                    <MainStack.Screen
+                        options={{ headerShown: false }}
+                        name="Login"
+                        component={LoginScreen}
+                    />
+                    <MainStack.Screen
+                        options={{ headerShown: false }}
+                        name="Posts"
+                        component={PostsScreen}
+                    />
+                    <MainStack.Screen
+                        options={{ headerShown: false }}
+                        name="Create Post"
+                        component={CreatePostsScreen}
+                    />
+                    <MainStack.Screen
+                        options={{ headerShown: false }}
+                        name="Coments"
+                        component={CommentsScreen}
+                    />
+                    <MainStack.Screen
+                        options={{ headerShown: false }}
+                        name="Profile"
+                        component={ProfileScreen}
+                    />
+                    <MainStack.Screen name="Map" component={MapScreen} />
+                </MainStack.Navigator>
+            </NavigationContainer>
         </View>
     );
 };

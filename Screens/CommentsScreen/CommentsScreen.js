@@ -27,7 +27,7 @@ const CommentsScreen = () => {
             date: "09 червня, 2020 | 09:14",
         },
         {
-            user: "user1",
+            user: "user2",
             userIcon: commentatorPhoto,
             text: "Thank you! That was very helpful!",
             date: "09 червня, 2020 | 09:20",
@@ -69,7 +69,7 @@ const CommentsScreen = () => {
                 {comments.map(({ user, text, date, userIcon }) => {
                     return (
                         <CommentComponent
-                            // key={id}
+                            key={user}
                             user={user}
                             text={text}
                             date={date}

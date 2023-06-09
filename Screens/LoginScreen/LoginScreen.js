@@ -88,7 +88,7 @@ const LoginScreen = () => {
                             textAlign: "center",
                         }}
                     >
-                        Немає фкаунту? Зареєструватися
+                        Немає акаунту? Зареєструватися
                     </Text>
                 </TouchableOpacity>
             </View>
