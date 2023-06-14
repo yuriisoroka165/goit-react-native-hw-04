@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigation } from "@react-navigation/native";
 import {
     View,
     Text,
@@ -12,6 +13,7 @@ import { styles } from "./LoginScreenStyles";
 import InputComponent from "../../components/InputComponent";
 
 const LoginScreen = () => {
+    const navigation = useNavigation();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [showPassword, setShowPassword] = useState(false);
@@ -21,7 +23,7 @@ const LoginScreen = () => {
     };
 
     const handleSubmitButtonPress = () => {
-        console.log({ email, password });
+        navigation.navigate("PostsScreen");
     };
 
     return (
@@ -80,7 +82,14 @@ const LoginScreen = () => {
                         Увійти
                     </Text>
                 </TouchableOpacity>
-                <TouchableOpacity>
+                <View
+                    style={{
+                        display: "flex",
+                        flexDirection: "row",
+                        gap: 3,
+                        justifyContent: "center",
+                    }}
+                >
                     <Text
                         style={{
                             fontSize: 16,
@@ -88,9 +97,22 @@ const LoginScreen = () => {
                             textAlign: "center",
                         }}
                     >
-                        Немає акаунту? Зареєструватися
+                        Немає акаунту?
                     </Text>
-                </TouchableOpacity>
+                    <TouchableOpacity
+                        onPress={() => navigation.navigate("Registration")}
+                    >
+                        <Text
+                            style={{
+                                fontSize: 16,
+                                color: "#1B4371",
+                                textAlign: "center",
+                            }}
+                        >
+                            Зареєструватися
+                        </Text>
+                    </TouchableOpacity>
+                </View>
             </View>
         </TouchableWithoutFeedback>
     );

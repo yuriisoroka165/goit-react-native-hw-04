@@ -8,10 +8,11 @@ import { useFonts } from "expo-font";
 import RegistrationScreen from "./Screens/RegistrationScreen";
 import LoginScreen from "./Screens/LoginScreen";
 import PostsScreen from "./Screens/PostsScreen/PostsScreen";
-import CreatePostsScreen from "./Screens/CreatePostsScreen";
+// import CreatePostsScreen from "./Screens/CreatePostsScreen";
 import CommentsScreen from "./Screens/CommentsScreen";
-import ProfileScreen from "./Screens/ProfileScreen";
+// import ProfileScreen from "./Screens/ProfileScreen";
 import MapScreen from "./Screens/MapScreen/MapScreen";
+import Home from "./Screens/Home/Home";
 
 const MainStack = createStackNavigator();
 
@@ -38,6 +39,11 @@ const App = () => {
                 <MainStack.Navigator initialRouteName="Login">
                     <MainStack.Screen
                         options={{ headerShown: false }}
+                        name="Home"
+                        component={Home}
+                    />
+                    <MainStack.Screen
+                        options={{ headerShown: false }}
                         name="Registration"
                         component={RegistrationScreen}
                     />
@@ -51,21 +57,21 @@ const App = () => {
                         name="Posts"
                         component={PostsScreen}
                     />
-                    <MainStack.Screen
+                    {/* <MainStack.Screen
                         options={{ headerShown: false }}
                         name="Create Post"
                         component={CreatePostsScreen}
-                    />
+                    /> */}
                     <MainStack.Screen
                         options={{ headerShown: false }}
                         name="Coments"
                         component={CommentsScreen}
                     />
-                    <MainStack.Screen
+                    {/* <MainStack.Screen
                         options={{ headerShown: false }}
                         name="Profile"
                         component={ProfileScreen}
-                    />
+                    /> */}
                     <MainStack.Screen name="Map" component={MapScreen} />
                 </MainStack.Navigator>
             </NavigationContainer>

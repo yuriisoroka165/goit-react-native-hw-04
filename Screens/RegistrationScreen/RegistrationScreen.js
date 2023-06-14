@@ -15,8 +15,10 @@ import { styles } from "./RegistrationScreenStyles";
 import RegistrationImageAddButton from "../../components/RegistrationImageAddButton";
 import RegistrationImageRemoveButton from "../../components/RegistrationImageRemoveButton";
 import InputComponent from "../../components/InputComponent";
+import { useNavigation } from "@react-navigation/native";
 
 const RegistrationScreen = () => {
+    const navigation = useNavigation();
     const [login, setLogin] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -45,7 +47,7 @@ const RegistrationScreen = () => {
 
         if (!result.canceled) setUserAavatar(result.assets[0].uri);
     };
-    
+
     return (
         <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
             <View style={styles.registrationContainer}>
@@ -131,7 +133,14 @@ const RegistrationScreen = () => {
                         Зареєструватися
                     </Text>
                 </TouchableOpacity>
-                <TouchableOpacity>
+                <View
+                    style={{
+                        display: "flex",
+                        flexDirection: "row",
+                        gap: 3,
+                        justifyContent: "center",
+                    }}
+                >
                     <Text
                         style={{
                             fontSize: 16,
@@ -139,9 +148,22 @@ const RegistrationScreen = () => {
                             textAlign: "center",
                         }}
                     >
-                        Вже є акаунт? Увійти
+                        Вже є акаунт?
                     </Text>
-                </TouchableOpacity>
+                    <TouchableOpacity
+                        onPress={() => navigation.navigate("Login")}
+                    >
+                        <Text
+                            style={{
+                                gap: 3,
+                                fontSize: 16,
+                                color: "#1B4371",
+                            }}
+                        >
+                            Увійти
+                        </Text>
+                    </TouchableOpacity>
+                </View>
             </View>
         </TouchableWithoutFeedback>
     );
