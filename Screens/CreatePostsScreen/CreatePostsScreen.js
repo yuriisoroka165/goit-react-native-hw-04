@@ -45,14 +45,14 @@ const CreatePostsScreen = () => {
                 behavior={Platform.OS == "ios" ? "padding" : "height"}
             >
                 <View style={styles.createPostsScreenContainer}>
-                    <View style={styles.createPostsHeaderContainer}>
+                    {/* <View style={styles.createPostsHeaderContainer}>
                         <ReturnButton
                             onPress={handleReturnPress}
                         ></ReturnButton>
                         <Text style={styles.createPostsHeader}>
                             Створити публікацію
                         </Text>
-                    </View>
+                    </View> */}
                     <View style={{ paddingLeft: 16, paddingRight: 16 }}>
                         <View style={styles.postPhotoContainer}>
                             <Image

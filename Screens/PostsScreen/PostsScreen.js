@@ -12,12 +12,12 @@ const PostsScreen = () => {
 
     return (
         <View style={styles.postsScreenContainer}>
-            <View style={styles.postsScreenHeaderContainer}>
+            {/* <View style={styles.postsScreenHeaderContainer}>
                 <Text style={styles.postsScreenHeader}>Публікації</Text>
                 <LogoutButton onPress={handleLogoutPress}></LogoutButton>
-            </View>
+            </View> */}
             <AuthenticatedUserInfo />
-            <AppControls />
+            {/* <AppControls /> */}
         </View>
     );
 };

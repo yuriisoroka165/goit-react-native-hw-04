@@ -4,7 +4,7 @@ export const styles = StyleSheet.create({
     profileContainer: {
         position: "relative",
         width: "100%",
-        height: "83%",
+        height: "80%",
         marginTop: "auto",
         backgroundColor: "#ffffff",
         borderTopLeftRadius: 20,

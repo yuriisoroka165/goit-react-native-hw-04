@@ -2,15 +2,13 @@ import "react-native-gesture-handler";
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import { Image, StyleSheet, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import { useFonts } from "expo-font";
 
 import RegistrationScreen from "./Screens/RegistrationScreen";
 import LoginScreen from "./Screens/LoginScreen";
 import PostsScreen from "./Screens/PostsScreen/PostsScreen";
-// import CreatePostsScreen from "./Screens/CreatePostsScreen";
 import CommentsScreen from "./Screens/CommentsScreen";
-// import ProfileScreen from "./Screens/ProfileScreen";
 import MapScreen from "./Screens/MapScreen/MapScreen";
 import Home from "./Screens/Home/Home";
 
@@ -30,11 +28,6 @@ const App = () => {
 
     return (
         <View style={styles.container}>
-            <Image
-                source={require("./assets/images/app_background.jpg")}
-                resizeMode="cover"
-                style={styles.image}
-            />
             <NavigationContainer>
                 <MainStack.Navigator initialRouteName="Login">
                     <MainStack.Screen
@@ -64,7 +57,7 @@ const App = () => {
                     /> */}
                     <MainStack.Screen
                         options={{ headerShown: false }}
-                        name="Coments"
+                        name="Comments"
                         component={CommentsScreen}
                     />
                     {/* <MainStack.Screen
@@ -84,12 +77,6 @@ const styles = StyleSheet.create({
         position: "relative",
         flex: 1,
         backgroundColor: "#fff",
-    },
-    image: {
-        position: "absolute",
-        width: "100%",
-        flex: 1,
-        justifyContent: "center",
     },
 });
 

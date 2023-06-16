@@ -1,16 +1,19 @@
 import React, { useState } from "react";
-import { View, Image, Text, ScrollView } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+import { View, Image, Text, ScrollView, ImageBackground } from "react-native";
 import * as ImagePicker from "expo-image-picker";
 
 import { styles } from "./ProfileScreenStyles";
+import Background from "../../assets/images/app_background.jpg";
 import RegistrationImageAddButton from "../../components/RegistrationImageAddButton";
 import RegistrationImageRemoveButton from "../../components/RegistrationImageRemoveButton";
-import LogoutButton from "../../components/LogoutButton";
 import PostComponent from "../../components/PostComponent/PostComponent";
+import LogoutButton from "../../components/LogoutButton";
 
 const ProfileScreen = () => {
     const [login, setLogin] = useState("Natali Romanova");
     const [userAvatar, setUserAavatar] = useState(userAvatar);
+    const navigation = useNavigation();
 
     const handleRemoveImage = () => {
         setUserAavatar(null);
@@ -60,59 +63,69 @@ const ProfileScreen = () => {
     const post = posts[1];
 
     return (
-        <View style={styles.profileContainer}>
-            <View style={styles.profileLogoutButton}>
-                <LogoutButton />
-            </View>
-
-            <View style={styles.userImageContainer}>
-                {userAvatar && (
-                    <Image
-                        source={{ uri: userAvatar }}
-                        style={{
-                            width: 120,
-                            height: 120,
-                            borderRadius: 16,
-                        }}
+        <ImageBackground
+            source={Background}
+            resizeMode="cover"
+            style={{ width: "100%", height: "100%" }}
+        >
+            <View style={styles.profileContainer}>
+                <View style={styles.profileLogoutButton}>
+                    <LogoutButton
+                        onPress={() => navigation.navigate("Login")}
                     />
-                )}
-                {!userAvatar ? (
-                    <RegistrationImageAddButton
-                        onPress={uploadAvatar}
-                    ></RegistrationImageAddButton>
-                ) : (
-                    <RegistrationImageRemoveButton
-                        onPress={handleRemoveImage}
-                    ></RegistrationImageRemoveButton>
-                )}
-            </View>
+                </View>
 
-            <Text style={styles.profileHeader}>{login}</Text>
-            <ScrollView
-                style={{ margin: 0, padding: 0 }}
-                showsVerticalScrollIndicator={false}
-            >
-                {/* <PostComponent
+                <View style={styles.userImageContainer}>
+                    {userAvatar && (
+                        <Image
+                            source={{ uri: userAvatar }}
+                            style={{
+                                width: 120,
+                                height: 120,
+                                borderRadius: 16,
+                            }}
+                        />
+                    )}
+                    {!userAvatar ? (
+                        <RegistrationImageAddButton
+                            onPress={uploadAvatar}
+                        ></RegistrationImageAddButton>
+                    ) : (
+                        <RegistrationImageRemoveButton
+                            onPress={handleRemoveImage}
+                        ></RegistrationImageRemoveButton>
+                    )}
+                </View>
+
+                <Text style={styles.profileHeader}>{login}</Text>
+                <ScrollView
+                    style={{ margin: 0, padding: 0 }}
+                    showsVerticalScrollIndicator={false}
+                >
+                    {/* <PostComponent
                     image={post.img}
                     description={post.description}
                     comments={post.coments}
                     likes={post.likes}
                     location={post.location}
                 /> */}
-                {posts.map(({ img, description, likes, coments, location }) => {
-                    return (
-                        <PostComponent
-                            key={description}
-                            image={img}
-                            description={description}
-                            likes={likes}
-                            comments={coments}
-                            location={location}
-                        />
-                    );
-                })}
-            </ScrollView>
-        </View>
+                    {posts.map(
+                        ({ img, description, likes, coments, location }) => {
+                            return (
+                                <PostComponent
+                                    key={description}
+                                    image={img}
+                                    description={description}
+                                    likes={likes}
+                                    comments={coments}
+                                    location={location}
+                                />
+                            );
+                        }
+                    )}
+                </ScrollView>
+            </View>
+        </ImageBackground>
     );
 };
 

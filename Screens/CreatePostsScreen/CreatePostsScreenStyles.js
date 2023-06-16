@@ -74,7 +74,7 @@ export const styles = StyleSheet.create({
     publishButton: {
         width: "100%",
         height: 50,
-        marginBottom: 80,
+        marginBottom: 120,
         padding: 16,
         borderRadius: 100,
         backgroundColor: "#FF6C00",
